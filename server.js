@@ -10,21 +10,21 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 app.use(cors());
 
-app.post('/v1/new/transaction',
+app.post('v1/new/transaction',
     (req,res)=> TransactionController
-        .addNewUserTransaction(req.body)
+        .addNewTransaction(req.body)
         .then((msg)=> res.json(msg))
         .catch((err)=>res.json(err))
 );
 
-app.get('/v1/transaction/:userName', 
+app.get('v1/transaction/:userName', 
     (req,res)=> TransactionController
     .getAllUserTransactions(req.params.userName)
     .then((transactions) => res.json(transactions))
     .catch((err)=> res.json(err))
 );
 
-app.put('/v1/update/transaction/:id',
+app.put('v1/update/transaction/:id',
     (req,res)=> TransactionController.updateTransaction(req.body)
     .then((msg)=> res.json(msg))
     .catch((err)=>res.json(err))
