@@ -1,0 +1,27 @@
+{
+  "name": "transactionservice",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/all-inEsports/transactionService.git"
+  },
+  "author": "Devansh Shah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/all-inEsports/transactionService/issues"
+  },
+  "homepage": "https://github.com/all-inEsports/transactionService#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.1"
+  }
+}
