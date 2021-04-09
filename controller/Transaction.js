@@ -2,6 +2,7 @@ const TransactionTypes = { credit: 'CREDIT', debt: 'DEBT' };
 Object.freeze(TransactionTypes);
 
 const mongoose = require("mongoose");
+const User = require("./User");
 
 module.exports = () => {
 
@@ -20,7 +21,11 @@ module.exports = () => {
                     if (err) {
                         reject(err);
                     } else {
-                        resolve(`New Transaction : ${data.Description} for ${data.UserName}`);
+                        let value = getAllUserTransactions(data.UserName)
+                        .map(transaction => transaction.Type === TransactionTypes.credit?transaction.Amount :transaction.Amount*-1 )
+                        .reduce((a,b)=>a+b);
+                        resolve(new Promise((resolve, reject) => resolve(User.updateBalance(value,data.UserName))));
+                        
                     }
                 });
             });
